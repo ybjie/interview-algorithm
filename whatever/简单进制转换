@@ -1,7 +1,8 @@
 <?php
 /*
 *进制转换
-*
+*思路其实也简单，因为这里主要是基于十进制
+*就是不断辗转相除就可以
 */
 function ten2four($input){
 	$result = array();
