@@ -1,0 +1,16 @@
+<?php
+/*
+*关于strlen的一些测试
+*/
+$strcn = "我真的喜欢上海";
+$stren = "Iloveyou";
+echo mb_strlen($strcn,utf8);
+echo "\n";
+echo strlen($strcn);
+echo "\n";
+$arr = array('key'=>'to',
+			 'the'=>'universe',
+			 'is'=>'love');
+echo count($arr);
+echo "\n";
+?>
