@@ -1,0 +1,30 @@
+<?php
+/*
+*我以为上边的方法已经很完美了，但是高手说，你这复杂度还是没有达到最优
+*这个方法有点巧了，但是，确实复杂度闭上边的低
+*大题思路是这样的，定义一个最小的26个质数（素数）的数组，对应我们26个字母（不考虑大小写问题）
+*求出第一个字符串的乘积，第二个字符串，送第一个字母看能否被整除
+*但是，我表示不服，不觉得它高明到了哪里
+*/
+	function($str_first,$str_second){
+		$arr_target = array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101);
+		$i = $str_first.length;
+		$j = $str_second.length;
+		$result = 1;
+		$flag = true;
+		for($index = 0;$index<$i;$index++){
+			$temp = substr($index,1,$str_first);
+			$num = $temp-'A';
+			$result *=(int)$num;
+		}
+		for($index = 0;$index<$j;$index++){
+			$tobe = substr($index,1,$str_second);
+			$temp = substr($index,1,$str_first);
+			$num = $temp-'A';
+			if($result%(int)$num!=0){
+				$flag = false;break;
+			}
+		}
+		return $flag;
+	}
+?>
