@@ -1,0 +1,30 @@
+<?php
+/*
+*给定两个字符串，假定前者长，后者短，判断后者中的每个字符是否都在前者中出现过
+*题目看起来也不难，但是面试的时候面试官可能一步步逼着你不断优化
+*这里我们提供两种方法
+*/
+
+	function isContained($str_first,$str_second){
+		$i = $str_first.length;
+		$j = $str_second.length;
+		$flag = true;
+		$compare = array();
+		for($index = 0;$index<$i;$index++){
+			$temp = substr($index,1,$str_first);
+			$compare['$temp'] = 1;
+		}
+		for($index = 0;$index<$j;$index++){
+			$tobe = substr($index,1,$str_second);
+			if(empty($compare[$tobe])){
+				$flag = false;
+				break;
+			}
+		}
+		return $flag;
+
+		$test_first = "ABFGRCDHJ";
+		$test_second = "ABJGR";
+		isContained($test_first,$test_second);
+		
+?>
