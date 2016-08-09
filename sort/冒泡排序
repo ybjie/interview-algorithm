@@ -1,0 +1,26 @@
+<?php
+/*
+*冒泡排序
+*思想很简单，就是每次比较相邻两个元素，如果前一个比较大就交换
+*这样每轮下来，就找到了最大的元素，并置于合适的位置
+*/
+
+function bubbleSort($arr_input){
+	$length = count($arr_input);
+	$index = 0;
+	$flag = true;
+	for($j=0;$j<$length;$j++){
+		for($i=0;$i<$length-j-1;$i++){
+			if($arr_input[$i]>$arr_input[$i+1]){
+				$temp = $arr_input[$i];
+				$arr_input[$i] = $arr_input[$i+1];
+				$arr_input[$i+1] = $temp;
+				$index = $i+1;
+			}
+		}
+	}
+	print_r($arr_input);
+}
+$test = array(0,3,2,5,7,4,11,9,8,3,10,21,15,14,23);
+bubbleSort($test);
+?>
