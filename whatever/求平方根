@@ -1,0 +1,25 @@
+<?php
+/*
+*这个是看别人面经看到的，求一个数字的平方根
+*有一个方法是，牛顿迭代法，证明如下
+*http://blog.punkid.org/2008/02/28/compute-the-square-root-via-newtons-iteration/
+*我在印象笔记也简单证明了一下
+*这里我们就直接使用公式了
+*/
+function squareRoot($input){
+	$y = 0.0001;
+	$result = floor($input/2);
+	$flag = true;
+	$count = 0;
+	while ($flag){
+		$result = ($result+$input/$result)/2;
+		$flag = abs($input-$result*$result)>$y?true:false;
+		$count++;
+	}
+	$result = sprintf("%.3f",$result);
+	echo $result;
+	echo "\n";
+
+}
+squareRoot(37);
+?>
