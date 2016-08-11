@@ -1,0 +1,35 @@
+<?php
+/*
+*快速排序的实现。哎呀重头戏终于来了
+*快速排序还是有点难度的
+*但是理解之后也还可以
+*
+*每次选定一个基准，两个指针，分别从首尾往前扫描，尾部的每次遇到一个比基准小的就停下，首部的每次遇到一个比基准大的就停下
+*双方都停下之后，进行交换，首尾交换，然后尾部和基准交换，然后首尾各自加1，继续扫描，直到两个相交
+*/
+
+function quikSort($arr,$start,$end){
+	$left = $start;
+	$right = $end;
+	$key = $arr[$start];
+	while($left<$right){
+		if($arr[$right]>=$key&&$left<$right){
+			$right--;
+		}
+		if($arr[$left]<=$key&&$left<$right){
+			$left++;
+		}
+		swap($arr,$left,$right);
+	}
+	swap($arr,$start,$left);
+	quikSort($arr,$start,$left-1);
+	quikSort($arr,$right+1,$end);
+}
+
+function swap($arr_input,$left,$right){
+	$temp = $arr_input[$left];
+	$arr_input[$left] = $arr_input[$right];
+	$arr_input[$right] = $temp;
+}
+
+?>
