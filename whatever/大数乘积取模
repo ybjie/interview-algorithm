@@ -1,0 +1,20 @@
+<?php
+/*
+*这也是一个技巧题目，在于取模运算的几个性质
+*(a*b*c*d)mod n  = ((amod n)(bmod n)(cmod n)(dmod n))mod n
+*简单证明：假设a = n*k+p;b=n*l+q;因式分解一下就能得证
+*
+*/
+function multiMod(array $arr_input,$n){
+
+	$result = 1;
+	foreach($arr_input as $val){
+		$result *=$val%$n;
+	}
+	echo $result%$n;
+	echo "\n";
+}
+$arr = array(1023,1345,1237,1789,33,478,120034,13456,278);
+$mod = 7;
+multiMod($arr,$mod);
+?>
