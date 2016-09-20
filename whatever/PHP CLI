@@ -1,0 +1,18 @@
+<?php
+//是命令行模式下怎么读取脚本传进来的参数，以及如何借助GUI于用户进行输入输出互动的实现
+//fwrite(STDOUT,"Please Enter Your Name:");
+//echo "\n";
+//$name  = trim(fgets(STDIN));
+
+//echo "Hello,".$name."!This is Siri";
+//echo "\n";
+
+var_export($argv);
+
+$name = $argv[1];
+$address = $argv[2];
+$country = $argv[3];
+
+echo "Helllo,".$name."\n";
+echo "I know your address:"."$address"." "."$country"."\n";
+?>
