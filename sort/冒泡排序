@@ -9,7 +9,8 @@ function bubbleSort($arr_input){
 	$length = count($arr_input);
 	$index = 0;
 	$flag = true;
-	for($j=0;$j<$length;$j++){
+	//最后一个就不用冒泡了
+	for($j=0;$j<$length-1;$j++){
 		for($i=0;$i<$length-j-1;$i++){
 			if($arr_input[$i]>$arr_input[$i+1]){
 				$temp = $arr_input[$i];
